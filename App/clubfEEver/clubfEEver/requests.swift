@@ -33,7 +33,8 @@ func getEvents() {
     }
 }
 
-func getAchievements() {
+func getAchievements() -> Int{
+    var count: Int = 0
     getAPIEndpoint(endpoint: "achievements") {(data, response, error) in
         if (error != nil) {
             print(error!)
@@ -44,16 +45,16 @@ func getAchievements() {
                 let result = responseDict["result"] as? String
                 if (result! == "success") {
                     let achievements = responseDict["achievements"] as? Array<[String: Any]>
-                    achievementList = []
+                    AchieveScreen.clearAchievements()
                     for ach in achievements! {
-                        let photo1 = UIImage(named: "TrophyIcon.png")
-                        let ach1 = achievement(name: ach["name"] as! String, category: 0, icon: photo1, has: false)
-                        achievementList += [ach1!]
+                        let ach1 = achievement(name: ach["name"] as! String, desc: ach["description"] as! String, category: ach["category"] as! String, points: ach["points"] as! Int)
+                        count = AchieveScreen.addAchievement(ach: ach1!)
                     }
                 }
             }
         }
     }
+    return count
 }
 
 func postToAPIEndpoint(endpoint: String, params: [String: Any]) {

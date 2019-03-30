@@ -9,16 +9,36 @@
 import UIKit
 import MapKit
 
+class Event: NSObject, MKAnnotation {
+    let title: String?
+    let locationName: String
+    let category: Int
+    let coordinate: CLLocationCoordinate2D
+    
+    init(title: String, locationName: String, category: Int, coordinate: CLLocationCoordinate2D) {
+        self.title = title
+        self.locationName = locationName
+        self.category = category
+        self.coordinate = coordinate
+        
+        super.init()
+    }
+    
+    var subtitle: String? {
+        return locationName
+    }
+}
+
+
 class ViewController: UIViewController {
-    
-    
+    //Outlets
     @IBOutlet weak var buttonView: UIView!
-    
-    
     @IBOutlet weak var achievementsButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
     @IBOutlet weak var calendarButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
     
+    //Segues
     @IBAction func clickAchievements(_ sender: Any) {
         performSegue(withIdentifier: "openAchievements", sender: self)
     }
@@ -29,9 +49,8 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "openUser", sender: self)
     }
     
-    
-    @IBOutlet weak var mapView: MKMapView!
-    
+    //Variables
+    let annotations = [MKPointAnnotation()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +64,10 @@ class ViewController: UIViewController {
         }
         
         centerMapOnLocation(location: initialLocation)
+        
+        //Sample Annotation --- Make into a function
+        let event0 = Event(title: "LGBTQ BBQ", locationName: "North Quad", category: 3, coordinate: CLLocationCoordinate2D(latitude: 41.703966, longitude: -86.237261))
+        mapView.addAnnotation(event0)
         
         self.view.bringSubviewToFront(buttonView)
     }

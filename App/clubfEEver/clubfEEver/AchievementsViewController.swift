@@ -10,15 +10,15 @@ import UIKit
 
 class achievement {
     var name: String
-    var category: Int
-    var icon: UIImage?
-    var has: Bool
+    var desc: String
+    var category: String
+    var points: Int
     
-    init?(name: String, category: Int, icon: UIImage?, has: Bool){
+    init?(name: String, desc: String, category: String, points: Int){
         self.name = name
+        self.desc = desc
         self.category = category
-        self.icon = icon
-        self.has = has
+        self.points = points
         
         if(name.isEmpty){
             return nil
@@ -26,7 +26,7 @@ class achievement {
     }
 }
 
-var achievementList = [achievement]()
+var AchieveScreen = AchievementsViewController()
 
 class AchievementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // UI Conncection
@@ -35,24 +35,34 @@ class AchievementsViewController: UIViewController, UITableViewDelegate, UITable
     
     // Variables
     let cellID: String = "AchievementsTableViewCell"
-    
+    var achievementList: [achievement] = []
+    var count: Int = 0;
     
     //Functions
     override func viewDidLoad() {
-        getAchievements()
-        while (achievementList.count == 0){
-            //Do Nothing
-        }
+        count = getAchievements()
+        print(count)
+        
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate = AchieveScreen
+        tableView.dataSource = AchieveScreen
         
         //tableView.register(AchievementsTableViewCell.self, forCellReuseIdentifier: cellID)
 
         // Do any additional setup after loading the view.
     }
     
+    public func addAchievement(ach: achievement) -> Int{
+        achievementList += [ach]
+        return achievementList.count
+    }
+    
+    public func clearAchievements() {
+        achievementList = []
+    }
+    
+    /*
     func loadsampleAchievements(){
         let photo1 = UIImage(named: "TrophyIcon.png")
         let ach1 = achievement(name: "Multicultural Badge", category: 0, icon: photo1, has: true)
@@ -60,6 +70,7 @@ class AchievementsViewController: UIViewController, UITableViewDelegate, UITable
         let ach3 = achievement(name: "McWell Badge", category: 1, icon: photo1, has: false)
         achievementList += [ach1!, ach2!, ach3!]
     }
+    */
         
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -70,7 +81,6 @@ class AchievementsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? AchievementsTableViewCell else{
             fatalError("The dequeued cell is not an instance of AchievementsViewCell.")
         }
@@ -78,7 +88,9 @@ class AchievementsViewController: UIViewController, UITableViewDelegate, UITable
         
         let ach = achievementList[indexPath.row]
         cell.achievementTitle.text = ach.name
-        cell.achievementIcon.image = ach.icon
+        cell.achievementDesc.text = ach.desc
+        cell.achievementPoints.text = String(ach.points)
+        //cell.achievementIcon.image = ach.icon
         
         return cell
     }
