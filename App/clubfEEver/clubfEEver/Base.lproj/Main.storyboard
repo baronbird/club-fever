@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,14 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yWK-uY-AoT">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="moM-hG-jL3" userLabel="buttonView">
-                                <rect key="frame" x="0.0" y="475" width="320" height="95"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moM-hG-jL3" userLabel="buttonView">
+                                <rect key="frame" x="0.0" y="468" width="320" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lT-WC-2aP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4D-fD-aAh">
+                                        <rect key="frame" x="135" y="30" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="LUe-uD-JV7"/>
+                                            <constraint firstAttribute="height" constant="50" id="xkf-YP-nuP"/>
+                                        </constraints>
+                                        <state key="normal" title="Calendar" image="Calendar"/>
+                                        <connections>
+                                            <action selector="clickCalendar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gCD-No-e7P"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lT-WC-2aP">
                                         <rect key="frame" x="20" y="16" width="64" height="61.568127519684083"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="7Vr-UJ-GHD"/>
@@ -39,56 +46,54 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="clickAchievements:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AF8-tu-UQs"/>
+                                            <action selector="clickAchievements:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4KI-hK-Yd8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4D-fD-aAh">
-                                        <rect key="frame" x="135" y="16" width="50" height="61.568127519684083"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="LUe-uD-JV7"/>
-                                            <constraint firstAttribute="height" constant="50" id="xkf-YP-nuP"/>
-                                        </constraints>
-                                        <state key="normal" title="Calendar" image="Calendar"/>
-                                        <connections>
-                                            <action selector="clickCalendar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fvS-M4-zMk"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ol-Wr-IWy">
-                                        <rect key="frame" x="247" y="16" width="53" height="62"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ol-Wr-IWy">
+                                        <rect key="frame" x="250" y="33" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="47m-k6-B0e"/>
                                             <constraint firstAttribute="width" constant="50" id="L5N-gE-dNH"/>
                                         </constraints>
                                         <state key="normal" title="User" image="UserIcon"/>
                                         <connections>
-                                            <action selector="clickUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fLF-MN-dCb"/>
+                                            <action selector="clickUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UDY-Vn-5G9"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="K4D-fD-aAh" secondAttribute="bottom" constant="20" id="Hk0-7c-0jV"/>
-                                    <constraint firstAttribute="width" constant="320" id="RBJ-ja-LJe"/>
                                     <constraint firstAttribute="trailing" secondItem="6Ol-Wr-IWy" secondAttribute="trailing" constant="20" id="TCA-kR-JHb"/>
                                     <constraint firstItem="7lT-WC-2aP" firstAttribute="leading" secondItem="moM-hG-jL3" secondAttribute="leading" constant="20" id="aVp-Yz-b6z"/>
                                     <constraint firstItem="K4D-fD-aAh" firstAttribute="centerX" secondItem="moM-hG-jL3" secondAttribute="centerX" id="fs7-eV-g9s"/>
                                     <constraint firstAttribute="bottom" secondItem="7lT-WC-2aP" secondAttribute="bottom" constant="17" id="hX2-Re-0y6"/>
+                                    <constraint firstAttribute="height" constant="100" id="jZz-VY-9BE"/>
                                     <constraint firstAttribute="bottom" secondItem="6Ol-Wr-IWy" secondAttribute="bottom" constant="17" id="p8p-p0-CDQ"/>
                                 </constraints>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yWK-uY-AoT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="top" secondItem="yWK-uY-AoT" secondAttribute="top" id="FbM-qv-tfU"/>
+                            <constraint firstItem="yWK-uY-AoT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MKG-vb-rc8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yWK-uY-AoT" secondAttribute="trailing" id="Os8-Hp-fVQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="moM-hG-jL3" secondAttribute="bottom" id="X5S-m7-BO4"/>
                             <constraint firstItem="moM-hG-jL3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d7F-4W-4Oy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="moM-hG-jL3" secondAttribute="trailing" id="mPD-hR-PIY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yWK-uY-AoT" secondAttribute="bottom" id="o6H-F4-mNt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="AchievementsButton" destination="7lT-WC-2aP" id="UFk-V7-MTM"/>
+                        <outlet property="achievementsButton" destination="7lT-WC-2aP" id="3Pj-cj-0JV"/>
                         <outlet property="buttonView" destination="moM-hG-jL3" id="STu-UY-8OW"/>
-                        <outlet property="calendarButton" destination="K4D-fD-aAh" id="Ir8-yM-kBh"/>
+                        <outlet property="calendarButton" destination="K4D-fD-aAh" id="hKo-cd-u8l"/>
                         <outlet property="mapView" destination="yWK-uY-AoT" id="5qS-Tf-zlA"/>
-                        <outlet property="userButton" destination="6Ol-Wr-IWy" id="2cd-J8-Mdi"/>
+                        <outlet property="userButton" destination="6Ol-Wr-IWy" id="rgk-ve-vAj"/>
                         <segue destination="FZz-DZ-rEX" kind="presentation" identifier="openAchievements" id="DVX-Vk-GKI"/>
                         <segue destination="nEm-xv-Zht" kind="presentation" identifier="openCalendar" id="Ts9-5K-jzH"/>
                         <segue destination="9cZ-oM-ax7" kind="presentation" identifier="openUser" id="4xe-aV-g6S"/>

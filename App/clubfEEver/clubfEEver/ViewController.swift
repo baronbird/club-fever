@@ -14,10 +14,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var buttonView: UIView!
     
-    @IBOutlet weak var AchievementsButton: UIButton!
     
+    @IBOutlet weak var achievementsButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
     @IBOutlet weak var calendarButton: UIButton!
+    
     @IBAction func clickAchievements(_ sender: Any) {
         performSegue(withIdentifier: "openAchievements", sender: self)
     }
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
     @IBAction func clickUser(_ sender: Any) {
         performSegue(withIdentifier: "openUser", sender: self)
     }
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
