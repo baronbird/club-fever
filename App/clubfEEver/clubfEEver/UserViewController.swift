@@ -10,6 +10,13 @@ import UIKit
 
 class UserViewController: UIViewController {
 
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    @IBAction func clickBackButton(_ sender: Any) {
+        performSegue(withIdentifier: "backUser", sender: self)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

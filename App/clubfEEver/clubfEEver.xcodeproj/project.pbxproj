@@ -17,6 +17,10 @@
 		28DBBA7F224F192700A89BDC /* clubfEEverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBBA7E224F192700A89BDC /* clubfEEverTests.swift */; };
 		28DBBA8A224F192700A89BDC /* clubfEEverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBBA89224F192700A89BDC /* clubfEEverUITests.swift */; };
 		28DBBA9A224F21D700A89BDC /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBBA99224F21D700A89BDC /* AchievementsViewController.swift */; };
+		28F387D0224FB36500BF4F05 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F387CF224FB36500BF4F05 /* PageViewController.swift */; };
+		28F387D2224FB39100BF4F05 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F387D1224FB39100BF4F05 /* LeaderboardViewController.swift */; };
+		28FA3D26224FCC9D00DF1FAA /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FA3D25224FCC9D00DF1FAA /* AchievementsTableViewCell.swift */; };
+		28FA3D28224FCE6B00DF1FAA /* transitionFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FA3D27224FCE6B00DF1FAA /* transitionFromRight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		28DBBA89224F192700A89BDC /* clubfEEverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clubfEEverUITests.swift; sourceTree = "<group>"; };
 		28DBBA8B224F192700A89BDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28DBBA99224F21D700A89BDC /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		28F387CF224FB36500BF4F05 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		28F387D1224FB39100BF4F05 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		28FA3D25224FCC9D00DF1FAA /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
+		28FA3D27224FCE6B00DF1FAA /* transitionFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transitionFromRight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +115,15 @@
 				28DBBA69224F192600A89BDC /* AppDelegate.swift */,
 				28DBBA6B224F192600A89BDC /* ViewController.swift */,
 				28DBBA6D224F192600A89BDC /* Main.storyboard */,
+				28FA3D25224FCC9D00DF1FAA /* AchievementsTableViewCell.swift */,
 				28DBBA70224F192700A89BDC /* Assets.xcassets */,
 				28DBBA72224F192700A89BDC /* LaunchScreen.storyboard */,
 				28DBBA75224F192700A89BDC /* Info.plist */,
 				28BE6D36224F2CEC00183E32 /* CalendarViewController.swift */,
 				28BE6D38224F2D4B00183E32 /* UserViewController.swift */,
+				28F387CF224FB36500BF4F05 /* PageViewController.swift */,
+				28F387D1224FB39100BF4F05 /* LeaderboardViewController.swift */,
+				28FA3D27224FCE6B00DF1FAA /* transitionFromRight.swift */,
 			);
 			path = clubfEEver;
 			sourceTree = "<group>";
@@ -265,9 +277,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FA3D28224FCE6B00DF1FAA /* transitionFromRight.swift in Sources */,
+				28F387D2224FB39100BF4F05 /* LeaderboardViewController.swift in Sources */,
+				28FA3D26224FCC9D00DF1FAA /* AchievementsTableViewCell.swift in Sources */,
 				28BE6D37224F2CEC00183E32 /* CalendarViewController.swift in Sources */,
 				28BE6D39224F2D4B00183E32 /* UserViewController.swift in Sources */,
 				28DBBA9A224F21D700A89BDC /* AchievementsViewController.swift in Sources */,
+				28F387D0224FB36500BF4F05 /* PageViewController.swift in Sources */,
 				28DBBA6C224F192600A89BDC /* ViewController.swift in Sources */,
 				28DBBA6A224F192600A89BDC /* AppDelegate.swift in Sources */,
 			);

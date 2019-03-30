@@ -1,5 +1,5 @@
 //
-//  CalendarViewController.swift
+//  LeaderboardViewController.swift
 //  clubfEEver
 //
 //  Created by Abby Greentree on 3/30/19.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    
-    @IBAction func clickBackButton(_ sender: Any) {
-        performSegue(withIdentifier: "openAchievements", sender: self)
+class LeaderboardViewController: UIViewController {
 
-    }
+    @IBOutlet weak var backButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    
+    @IBAction func clickBack(_ sender: Any) {
+         performSegue(withIdentifier: "backLeaderboard", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 
