@@ -30,24 +30,13 @@ def create_user(username):
     return {"result": "success", "username": username}
 
 def get_events(date):
-    event_template = {
-    "id": 0,
-    "event_name": "default", 
-    "description": "default", 
-    "date": "1970-01-01",
-    "start_time": "default",
-    "end_time": "default",
-    "tags": [], 
-    "point_value": 0,
-    "completed": False
-    }
-
     events_holder = []
 
     cur.execute("SELECT * from events WHERE date = '{}'".format(date))
     rows = cur.fetchall()
 
     for row in rows:
+        event_template = {}
         event_template["id"] = row[0]
         event_template["event_name"] = row[1]
         event_template["description"] = row[2]
@@ -96,3 +85,63 @@ def get_suggestions(tags):
 
 
     return suggested_events
+
+def fetch_achievements_from_db():
+    ach_holder = []
+
+    cur.execute("SELECT * from achievements")
+    rows = cur.fetchall()
+
+    for row in rows:
+        ach_template = {}
+        ach_template["id"] = row[0]
+        ach_template["name"] = row[1]
+        ach_template["description"] = row[2]
+        ach_template["category"] = row[3]
+        ach_template["points"] = row[4]
+        ach_template["threshold"] = row[5]
+
+        ach_holder.append(ach_template)
+
+    return ach_holder
+
+
+def get_achievements():
+    ach_holder = fetch_achievements_from_db()
+
+    return {"result": "success", "achievements": ach_holder}
+
+def check_achievement_progress(user):
+    ach_holder = fetch_achievements_from_db()
+
+    achieved = []
+
+    cur.execute("SELECT badges_unlocked from users WHERE username='{}'".format(user))
+    badges_unlocked = cur.fetchall()[0][0]
+
+    for ach in ach_holder:
+        if ach["id"] in badges_unlocked:
+            continue
+
+        cat = ach["category"]
+        if cat == "General":
+            continue
+        cur.execute("SELECT {} from user_stats WHERE username='{}'".format(cat, user))
+        rows = cur.fetchall()
+
+        if len(rows) < 1:
+            return {"result": "failure", "error": "user '{}' does not exist".format(user)}
+        if rows[0][0] >= ach["threshold"] and ach["threshold"] is not None:
+            print("achieved "+str(ach["id"]))
+            achieved.append(ach["id"])
+
+    i = len(badges_unlocked) + 1
+    for ach_id in achieved:
+        query = "UPDATE users SET badges_unlocked[{}]={} WHERE username='{}'".format(i, ach_id, user)
+        cur.execute(query)
+        conn.commit()
+        i += 1
+    return {"result": "success", "achieved": achieved}
+
+#test
+#check_achievement_progress("rathination")
