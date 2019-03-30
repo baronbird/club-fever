@@ -21,6 +21,7 @@
 		28F387D2224FB39100BF4F05 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F387D1224FB39100BF4F05 /* LeaderboardViewController.swift */; };
 		28FA3D26224FCC9D00DF1FAA /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FA3D25224FCC9D00DF1FAA /* AchievementsTableViewCell.swift */; };
 		28FA3D28224FCE6B00DF1FAA /* transitionFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FA3D27224FCE6B00DF1FAA /* transitionFromRight.swift */; };
+		28FA3D2A224FF3FC00DF1FAA /* requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FA3D29224FF3FC00DF1FAA /* requests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		28F387D1224FB39100BF4F05 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		28FA3D25224FCC9D00DF1FAA /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
 		28FA3D27224FCE6B00DF1FAA /* transitionFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transitionFromRight.swift; sourceTree = "<group>"; };
+		28FA3D29224FF3FC00DF1FAA /* requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				28F387CF224FB36500BF4F05 /* PageViewController.swift */,
 				28F387D1224FB39100BF4F05 /* LeaderboardViewController.swift */,
 				28FA3D27224FCE6B00DF1FAA /* transitionFromRight.swift */,
+				28FA3D29224FF3FC00DF1FAA /* requests.swift */,
 			);
 			path = clubfEEver;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				28FA3D28224FCE6B00DF1FAA /* transitionFromRight.swift in Sources */,
 				28F387D2224FB39100BF4F05 /* LeaderboardViewController.swift in Sources */,
 				28FA3D26224FCC9D00DF1FAA /* AchievementsTableViewCell.swift in Sources */,
+				28FA3D2A224FF3FC00DF1FAA /* requests.swift in Sources */,
 				28BE6D37224F2CEC00183E32 /* CalendarViewController.swift in Sources */,
 				28BE6D39224F2D4B00183E32 /* UserViewController.swift in Sources */,
 				28DBBA9A224F21D700A89BDC /* AchievementsViewController.swift in Sources */,

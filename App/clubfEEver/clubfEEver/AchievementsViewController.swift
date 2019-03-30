@@ -26,22 +26,27 @@ class achievement {
     }
 }
 
+var achievementList = [achievement]()
+
 class AchievementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // UI Conncection
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     // Variables
-    var achievements = [achievement]()
     let cellID: String = "AchievementsTableViewCell"
+    
     
     //Functions
     override func viewDidLoad() {
+        getAchievements()
+        while (achievementList.count == 0){
+            //Do Nothing
+        }
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        loadsampleAchievements()
         
         //tableView.register(AchievementsTableViewCell.self, forCellReuseIdentifier: cellID)
 
@@ -53,7 +58,7 @@ class AchievementsViewController: UIViewController, UITableViewDelegate, UITable
         let ach1 = achievement(name: "Multicultural Badge", category: 0, icon: photo1, has: true)
         let ach2 = achievement(name: "Sports Events Badge", category: 2, icon: photo1, has: true)
         let ach3 = achievement(name: "McWell Badge", category: 1, icon: photo1, has: false)
-        achievements += [ach1!, ach2!, ach3!]
+        achievementList += [ach1!, ach2!, ach3!]
     }
         
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,15 +66,17 @@ class AchievementsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return achievements.count
+        return achievementList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? AchievementsTableViewCell else{
             fatalError("The dequeued cell is not an instance of AchievementsViewCell.")
         }
+    
         
-        let ach = achievements[indexPath.row]
+        let ach = achievementList[indexPath.row]
         cell.achievementTitle.text = ach.name
         cell.achievementIcon.image = ach.icon
         
