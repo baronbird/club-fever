@@ -25,8 +25,8 @@ class friend {
 }
 
 var LeaderboardScreen = LeaderboardViewController()
-
 var userList: [friend] = []
+var count: Int = 0
 
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // Outlets
@@ -38,12 +38,8 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     override func viewDidLoad() {
-        loadsampleUsers()
+        count = getLeaderboard()
         
-        while(userList.count == 0 ){
-            
-            
-        }
         super.viewDidLoad()
 
         tableView.delegate = LeaderboardScreen
@@ -70,7 +66,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         let user = userList[indexPath.row]
         cell.userName.text = user.name
         cell.userDorm.text = user.dorm
-        cell.userPoints.text = String(user.points)
+        cell.userPoints.text = String(user.points) + " pts"
         
         return cell
     }
@@ -89,15 +85,13 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
 
-    /*
-    public func addAchievement(ach: achievement) -> Int{
-        achievementList += [ach]
-        return achievementList.count
+    public func addLeaderboard(user: friend) -> Int{
+        userList += [user]
+        return userList.count
     }
     
-    public func clearAchievements() {
-        achievementList = []
+    public func clearLeaderboard() {
+        userList = []
     }
-    */
   
 }

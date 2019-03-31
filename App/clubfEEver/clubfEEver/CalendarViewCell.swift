@@ -10,7 +10,9 @@ import UIKit
 
 class CalendarViewCell: UITableViewCell {
 
+    @IBOutlet weak var locName: UILabel!
     @IBOutlet weak var eventName: UILabel!
+    @IBOutlet weak var eventTime: UILabel!
     @IBOutlet weak var eventIcon: UIImageView!
     @IBOutlet weak var eventDescription: UILabel!
     @IBOutlet weak var eventPoints: UILabel!
@@ -19,6 +21,7 @@ class CalendarViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        eventName.font = UIFont.boldSystemFont(ofSize: 16.0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

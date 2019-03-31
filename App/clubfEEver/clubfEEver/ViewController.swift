@@ -9,16 +9,14 @@
 import UIKit
 import MapKit
 
-class Event: NSObject, MKAnnotation {
-    let title: String?
-    let locationName: String
-    let category: Int
-    let coordinate: CLLocationCoordinate2D
+class annotations: NSObject, MKAnnotation {
+    var title: String?
+    var locationName: String
+    var coordinate: CLLocationCoordinate2D
     
-    init(title: String, locationName: String, category: Int, coordinate: CLLocationCoordinate2D) {
+    init(title: String, locationName: String, coordinate: CLLocationCoordinate2D){
         self.title = title
         self.locationName = locationName
-        self.category = category
         self.coordinate = coordinate
         
         super.init()
@@ -29,6 +27,9 @@ class Event: NSObject, MKAnnotation {
     }
 }
 
+var eventList: [event] = []
+
+var ViewScreen = UIViewController()
 
 class ViewController: UIViewController {
     //Outlets
@@ -49,10 +50,9 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "openUser", sender: self)
     }
     
-    //Variables
-    let annotations = [MKPointAnnotation()]
-    
     override func viewDidLoad() {
+        getEvents()
+
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -65,13 +65,26 @@ class ViewController: UIViewController {
         
         centerMapOnLocation(location: initialLocation)
         
+        for event in eventList {
+            let annot = annotations(title: event.name, locationName: event.locName, coordinate: CLLocationCoordinate2D(latitude: event.latitude, longitude: event.longitude))
+            mapView.addAnnotation(annot)
+        }
+        
+        
+        
         //Sample Annotation --- Make into a function
-        let event0 = Event(title: "LGBTQ BBQ", locationName: "North Quad", category: 3, coordinate: CLLocationCoordinate2D(latitude: 41.703966, longitude: -86.237261))
-        mapView.addAnnotation(event0)
+        //let event0 = Event(title: "LGBTQ BBQ", locationName: "North Quad", category: 3, coordinate: CLLocationCoordinate2D(latitude: 41.703966, longitude: -86.237261))
+        //mapView.addAnnotation(event0)
         
         self.view.bringSubviewToFront(buttonView)
     }
-
-
+    
+    public func addEvent(event: event) {
+        eventList.append(event)
+    }
+    
+    public func clearEvents(){
+        eventList = []
+    }
 }
 

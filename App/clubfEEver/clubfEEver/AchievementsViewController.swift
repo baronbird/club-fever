@@ -84,12 +84,13 @@ class AchievementsViewController: UIViewController, UITableViewDelegate, UITable
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? AchievementsTableViewCell else{
             fatalError("The dequeued cell is not an instance of AchievementsViewCell.")
         }
-    
+        
         
         let ach = achievementList[indexPath.row]
+        cellCategory = ach.category
         cell.achievementTitle.text = ach.name
         cell.achievementDesc.text = ach.desc
-        cell.achievementPoints.text = String(ach.points)
+        cell.achievementPoints.text = String(ach.points) + " pts"
         //cell.achievementIcon.image = ach.icon
         
         return cell
