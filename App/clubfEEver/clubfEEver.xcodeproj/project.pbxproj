@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2819F481225052DB003335CA /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2819F480225052DB003335CA /* CalendarViewCell.swift */; };
 		282EE6EA2250179700E91ADB /* LeaderboardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EE6E92250179700E91ADB /* LeaderboardViewCell.swift */; };
 		28BE6D37224F2CEC00183E32 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE6D36224F2CEC00183E32 /* CalendarViewController.swift */; };
 		28BE6D39224F2D4B00183E32 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE6D38224F2D4B00183E32 /* UserViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2819F480225052DB003335CA /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
 		282EE6E92250179700E91ADB /* LeaderboardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewCell.swift; sourceTree = "<group>"; };
 		28BE6D36224F2CEC00183E32 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		28BE6D38224F2D4B00183E32 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				28FA3D27224FCE6B00DF1FAA /* transitionFromRight.swift */,
 				28FA3D29224FF3FC00DF1FAA /* requests.swift */,
 				282EE6E92250179700E91ADB /* LeaderboardViewCell.swift */,
+				2819F480225052DB003335CA /* CalendarViewCell.swift */,
 			);
 			path = clubfEEver;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				282EE6EA2250179700E91ADB /* LeaderboardViewCell.swift in Sources */,
 				28FA3D2A224FF3FC00DF1FAA /* requests.swift in Sources */,
 				28BE6D37224F2CEC00183E32 /* CalendarViewController.swift in Sources */,
+				2819F481225052DB003335CA /* CalendarViewCell.swift in Sources */,
 				28BE6D39224F2D4B00183E32 /* UserViewController.swift in Sources */,
 				28DBBA9A224F21D700A89BDC /* AchievementsViewController.swift in Sources */,
 				28F387D0224FB36500BF4F05 /* PageViewController.swift in Sources */,
