@@ -12,7 +12,14 @@ def get_user_data(username):
     cur.execute("SELECT * from users WHERE username = '{}'".format(username))
     rows = cur.fetchall()
 
-    print(rows[0])
+    if len(rows) == 0:
+        return {'result': 'failure', 'error': "username '{}' not found".format(username)}
+
+    return {'result': 'success', 'user': {'name': row[0][0],
+                                          'tags': row[0][1],
+                                          'points': row[0][2],
+                                          'dorm': row[0][4]}}
+
 
 # test
 #get_user_data("rathination")
@@ -29,6 +36,19 @@ def create_user(username):
     cur.execute(query)
     return {"result": "success", "username": username}
 
+def get_leaderboard():
+    cur.execute("SELECT username, dorm, points FROM users")
+    rows = cur.fetchall()
+    leaders = []
+    for row in rows:
+        leader_template = {}
+        leader_template["username"] = row[0]
+        leader_template["dorm"] = row[1]
+        leader_template["points"] = row[2]
+        leaders.append(leader_template)
+
+    return {"result": "success", "users": leaders}
+
 def get_events(date):
     events_holder = []
 
@@ -40,19 +60,22 @@ def get_events(date):
         event_template["id"] = row[0]
         event_template["event_name"] = row[1]
         event_template["description"] = row[2]
-        event_template["date"] = row[3]
-        event_template["start_time"] = row[4]
-        event_template["end_time"] = row[5]
-        event_template["tags"] = row[6]
+        event_template["date"] = str(row[3])
+        event_template["start_time"] = str(row[4])
+        event_template["end_time"] = str(row[5])
+        event_template["tag"] = row[6][0]
         event_template["point_value"] = row[7]
         event_template["completed"] = row[8]
+        event_template["latitude"] = float(row[9])
+        event_template["longitude"] = float(row[10])
+        event_template["loc_name"] = row[11]
 
         events_holder.append(event_template)
 
     return {"result": "success", "events": events_holder}
     
 # test
-#test = get_events('2019-03-31')
+#test = get_events('2019-04-01')
 #print(test)
 
 def add_event(form):

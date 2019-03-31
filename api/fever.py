@@ -29,11 +29,15 @@ def handle_user_tags(username):
     if request.method == "POST":
         return add_user_tags(username, request.get_json())
 
+@app.route("/leaderboard", methods=["GET"])
+def handle_leaderboard():
+    return json.dumps(get_leaderboard())
+
 @app.route("/events", methods=["GET", "POST"])
 def handle_events():
     if request.method == "GET":
         date = request.args.get('date', '')
-        return get_events(date)
+        return json.dumps(get_events(date))
     if request.method == "POST":
         return add_event(request.get_json())
 
@@ -41,15 +45,6 @@ def handle_events():
 def handle_achievements():
     if request.method == "GET":
         return json.dumps(get_achievements())
-        """return json.dumps(
-                {"result": "success",
-                "achievements": [
-                    {"name": "Jack of All Trades",
-                     "description": "Attended events in 5 different categories"},
-                    {"name": "Superfan", "description":
-                     "Attended 20 games or events for one sports team"}
-                    ]
-                })"""
     if request.method == "POST":
         return add_achievement(request.get_json())
 
