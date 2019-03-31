@@ -26,6 +26,8 @@ class friend {
 
 var LeaderboardScreen = LeaderboardViewController()
 
+var userList: [friend] = []
+
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -33,8 +35,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
     //Variables
     let cellID: String = "LeaderboardViewCell"
-    var userList: [friend] = []
-    var count: Int = 0;
+    
     
     override func viewDidLoad() {
         loadsampleUsers()
@@ -75,6 +76,8 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func loadsampleUsers(){
+        userList = []
+        
         let user1 = friend(name: "Rathin Kacham", dorm: "Keenan", points: 1250)
         let user2 = friend(name: "Sam Berning", dorm: "Keenan", points: 750)
         let user3 = friend(name: "Abby Greentree", dorm: "Farley", points: 500)
